@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on From the Terminal</title>
+    <link>https://fromtheterminal.com/post/</link>
+    <description>Recent content in Posts on From the Terminal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fromtheterminal.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Post</title>
+      <link>https://fromtheterminal.com/post/test/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fromtheterminal.com/post/test/</guid>
+      <description>   Some content to test  Here is some words to talk about things.
+Here is a point
+ This is the point to make  1 2 3 4 5  import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;testing code stuff&amp;#34;) }   </description>
+    </item>
+    
+  </channel>
+</rss>
