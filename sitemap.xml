@@ -2,19 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://fromtheterminal.com/projects/barlights/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://fromtheterminal.com/</loc>
-    <lastmod>2021-12-08T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url><url>
-    <loc>https://fromtheterminal.com/post/</loc>
-    <lastmod>2021-12-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fromtheterminal.com/post/test/</loc>
-    <lastmod>2021-12-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fromtheterminal.com/articles/</loc>
+    <loc>https://fromtheterminal.com/post/barlights_part_1/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fromtheterminal.com/categories/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fromtheterminal.com/categories/docker/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fromtheterminal.com/categories/go/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fromtheterminal.com/categories/hardware/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fromtheterminal.com/post/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fromtheterminal.com/categories/raspberry-pi/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fromtheterminal.com/projects/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fromtheterminal.com/articles/</loc>
   </url><url>
     <loc>https://fromtheterminal.com/tags/</loc>
   </url>

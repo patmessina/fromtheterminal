@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>Building a Light Display - Part I | From the Terminal</title>
+
+    
+    
+    
+    <meta property="og:site_name" content="From the Terminal" />
+    <meta property="og:title" content="Building a Light Display - Part I | From the Terminal"/>
+    <meta itemprop="name" content="Building a Light Display - Part I | From the Terminal" />
+    <meta name="twitter:title" content="Building a Light Display - Part I | From the Terminal" />
+    <meta name="application-name" content="Building a Light Display - Part I | From the Terminal" />
+
+
+    <meta name="description" content="Computer related topics with a bias of using the Linux terminal." />
+    <meta name="twitter:description" content="Computer related topics with a bias of using the Linux terminal."/>
+    <meta itemprop="description" content="Computer related topics with a bias of using the Linux terminal."/>
+    <meta property="og:description" content="Computer related topics with a bias of using the Linux terminal." />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="" />
+<meta property="og:article:published_time" content=2021-12-26T00:00:00Z />
+<meta property="article:published_time" content=2021-12-26T00:00:00Z />
+
+
+  <meta property="og:article:author" content="Hackerman" />
+  <meta property="article:author" content="Hackerman" />
+  <meta name="author" content="Hackerman" />
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Building a Light Display - Part I",
+    "author": {
+      "@type": "Person",
+      "name": ""
+    },
+    "datePublished": "2021-12-26",
+    "description": "",
+    "wordCount":  810 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2021-12-26",
+    "publisher": {
+      "@type": "Organization",
+      "name": "",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/fromtheterminal.com\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css">
+    
+</head>
+    <script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                        <img src="/favicon.ico" />
+                    
+                    From the Terminal
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button">
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Building a Light Display - Part I</h1>
+                    <div class="subtitle">
+                      Installing the Raspberry Pi and Development Software
+                    </div>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            By hackerman | <time>December 26, 2021</time>
+                            | 4 minutes
+                        </div>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h1 id="introduction">
+    <a href="#introduction" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Introduction
+</h1>
+<p>In my apartment is a small built in desk that I have converted into a
+bar. This was done by simply adding some liquor bottles and a Boston
+shaker. So now that we both have a bar, it might be nice to light the
+bar up with individually addressable LEDs. The following series of
+posts will discuss how to set up a Raspberry Pi, hook up the
+NeoPixels (ws2811) to the Raspberry Pi, create an API with Go,
+connect to the API with iPhone shortcuts, and finally how to make a
+cocktail to enjoy.</p>
+<h2 id="hardware">
+    <a href="#hardware" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Hardware
+</h2>
+<ul>
+<li>A Raspberry Pi - I used a <a href="https://www.raspberrypi.com/products/raspberry-pi-zero-w/">Raspberry Pi Zero W</a></li>
+<li>3.5v power supply</li>
+<li>SD Card</li>
+<li>Breadboard</li>
+<li>22 gauge solid core wire</li>
+<li>solder and soldering iron</li>
+<li>sockets (optional but handy)</li>
+<li>WS12811/2 lights/neopixels</li>
+<li>5v power supply</li>
+<li>74AHCT125 Quad Level-Shifter or 74HCT245.</li>
+<li>double sided tape</li>
+</ul>
+<h2 id="software">
+    <a href="#software" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Software
+</h2>
+<p>And on the computer where we will write the software we will use</p>
+<ul>
+<li>docker</li>
+<li>Go, I used <code>go1.17.5</code></li>
+<li>ssh</li>
+<li>curl</li>
+<li>some shell</li>
+</ul>
+<h2 id="some-useful-refrences">
+    <a href="#some-useful-refrences" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Some Useful Refrences
+</h2>
+<ul>
+<li><a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices">Neo Pixel Best Practices</a></li>
+<li><a href="https://github.com/rpi-ws281x/rpi-ws281x-go">rpi-ws281x-go GitHub Page</a></li>
+<li><a href="https://pkg.go.dev/github.com/rpi-ws281x/rpi-ws281x-go?utm_source=godoc">rpi-ws281x-go Reference</a></li>
+<li><a href="https://github.com/jgarff/rpi_ws281x#build">rpi-ws281x GitHub</a></li>
+</ul>
+<h1 id="installing-raspberry-pi-os-lite">
+    <a href="#installing-raspberry-pi-os-lite" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Installing Raspberry Pi OS Lite
+</h1>
+<p>We could download the latest <a href="https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-32-bit">Raspberry Pi OS
+Lite</a>,
+use <code>dd</code> to image the SD card, then modify/add a few files to get what we
+need&hellip; or we could use the <a href="https://www.raspberrypi.com/software/">Raspberry Pi
+Imager</a> and have WiFi and ssh enabled
+for us with a few clicks. Normally I would prefer to do things via the
+command line, but in this instance it will save us a some time. Though it does
+feel a bit odd considering this blog is called <em>From the Terminal</em>.</p>
+<p>Insert the SD card into your desktop and open up the Raspberry Pi Imager</p>
+<p><img loading="lazy" 
+    src="/barlights/rpi.png" 
+    alt="Raspberry Pi Imager" 
+     
+    width=690 
+    height="454"  /></p>
+<p>and press <kbd><kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>x</kbd></kbd> to get the advanced menu. Set the hostname, enable
+ssh, set the &lsquo;pi&rsquo; user password, configure the WiFi settings, and make sure the
+correct time zone is set.</p>
+<p><img loading="lazy" 
+    src="/barlights/rpi-advanced-settings.png" 
+    alt="Raspberry Pi Imager Advanced Settings" 
+     
+    width=690 
+    height="1075"  /></p>
+<p>Then choose the OS, I have chosen to use <code>Operating System-&gt;Raspberry Pi OS (other)-&gt;Raspberry Pi OS Lite (32-bit)</code>, but it should be fine to choose any
+others. With the SD card plugged into our computer, select the desired device and then click write. There should be a
+prompt for the password and it should specify the disk. <strong>Double check that it
+is the correct disk!</strong></p>
+<p><img loading="lazy" 
+    src="/barlights/rpi-auth.png" 
+    alt="Raspberry Pi Imager Auth" 
+     
+    width=690 
+    height="675"  /></p>
+<p>Put the SD card in the Raspberry Pi and boot. If configured correctly, it
+should join the WiFi network specified. The IP can be found via the networks
+router or find the device with <code>nmap</code> with the following command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># ip needs to be your network</span>
+nmap -sn 192.168.1.0/24
+</code></pre></td></tr></table>
+</div>
+</div><p>Then confirm that we can connect to the device by using <code>ssh</code> and using the
+device address. As an example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh pi@192.168.1.172
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="setting-up-a-dev-environment">
+    <a href="#setting-up-a-dev-environment" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Setting Up a Dev Environment
+</h1>
+<p>We will be using Go and the package
+<a href="https://github.com/rpi-ws281x/rpi-ws281x-go">rpi-ws281x-go</a> to
+program the lights. It is recommend to develop on a different machine
+than on the Raspberry Pi, which means we need to cross compile.
+Normally this is easy with Go, but because we need to use some c
+libraries it is recommended to use a container  to cross compile.
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> It is probably best to follow the libraries documentation, but I
+will provide the steps I followed.</p>
+<p>We first grab the <code>Dockerfile</code> and use <code>buildx</code>. The platform may need to
+be changed to whichever Raspberry Pi is being used. For the Raspberry
+Pi 0 W it is <code>linux/arm/v6</code>. I did have some troubles on this step which
+I discuss <a href="#troubleshooting">here</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl https://raw.githubusercontent.com/rpi-ws281x/rpi-ws281x-go/master/docker/app-builder/Dockerfile -o Dockerfile
+docker buildx build --platform linux/arm/v6 --tag ws2811-builder --file ./Dockerfile .
+</code></pre></td></tr></table>
+</div>
+</div><p>Then just to test we have the correct setup we can build their
+example project <code>swiss</code>. Inside some <code>tmp/</code> directory, download their
+example, make a <code>go.mod</code> file, and build the project with the
+following</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">curl https://raw.githubusercontent.com/rpi-ws281x/rpi-ws281x-go/master/examples/swiss/swiss.go -o swiss.go
+go mod init swiss
+go mod tidy
+<span class="nv">APP</span><span class="o">=</span>swiss
+docker run --rm -v <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span>:/usr/src/<span class="nv">$APP</span> --platform linux/arm/v6 <span class="se">\
+</span><span class="se"></span>  -w /usr/src/<span class="nv">$APP</span> ws2811-builder:latest go build -o <span class="s2">&#34;</span><span class="nv">$APP</span><span class="s2">-armv6&#34;</span> -v
+</code></pre></td></tr></table>
+</div>
+</div><p>To check if we can actually run it we copy it over to the Raspberry Pi</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scp swiss-armv6 pi@192.168.1.172:~
+ssh pi@192.168.1.172
+sudo swiss-armv6
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="troubleshooting">
+    <a href="#troubleshooting" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Troubleshooting
+</h1>
+<h2 id="issues-with-building-buildx">
+    <a href="#issues-with-building-buildx" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Issues with building buildx
+</h2>
+<!-- https://github.com/docker/buildx/issues/57 -->
+<p>I had issue with the correct architectures not showing up (in particular
+<code>linux/arm/v6</code>). This turned out to be an issue with <code>binfmt</code> not having
+everything it needed for <code>buildx</code>. Solved this on Arch Linux by installing the
+following packages.</p>
+<blockquote>
+<p>Install <code>binfmt-qemu-static</code><sup>AUR</sup> and
+<code>qemu-user-static</code><sup>AUR</sup> from the AUR on the x86_64 machine/host.
+<code>binfmt-qemu-static</code> will take care of registering the <code>qemu</code> binaries to <code>binfmt</code>
+service.  <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<h2 id="issues-with-running-swiss-example">
+    <a href="#issues-with-running-swiss-example" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Issues with running swiss example
+</h2>
+<p>The examples given were for <code>linux/arm/v7</code>. I needed <code>linux/arm/v6</code>. I needed
+to cross compile to the correct architecture? Who would of thought that.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>It is not required to know how to write a <a href="https://www.docker.com/resources/what-container">Docker
+Image</a>. We will simply
+be using a preexisting image and later making minor changes to save some
+time.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://wiki.archlinux.org/title/QEMU">Arch Wiki</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.a534d05c446023fa2ae2a638f87cc2443ad8e49f6aaeb4d9f24ed61d53766712.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>
