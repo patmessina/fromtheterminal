@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title>Building a Light Display - Part 2 | From the Terminal</title>
+
+    
+    
+    
+    <meta property="og:site_name" content="From the Terminal" />
+    <meta property="og:title" content="Building a Light Display - Part 2 | From the Terminal"/>
+    <meta itemprop="name" content="Building a Light Display - Part 2 | From the Terminal" />
+    <meta name="twitter:title" content="Building a Light Display - Part 2 | From the Terminal" />
+    <meta name="application-name" content="Building a Light Display - Part 2 | From the Terminal" />
+
+
+    <meta name="description" content="Computer related topics with a bias of using the Linux terminal." />
+    <meta name="twitter:description" content="Computer related topics with a bias of using the Linux terminal."/>
+    <meta itemprop="description" content="Computer related topics with a bias of using the Linux terminal."/>
+    <meta property="og:description" content="Computer related topics with a bias of using the Linux terminal." />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="" />
+<meta property="og:article:published_time" content=2022-01-19T00:00:00Z />
+<meta property="article:published_time" content=2022-01-19T00:00:00Z />
+
+
+  <meta property="og:article:author" content="Hackerman" />
+  <meta property="article:author" content="Hackerman" />
+  <meta name="author" content="Hackerman" />
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Building a Light Display - Part 2",
+    "author": {
+      "@type": "Person",
+      "name": ""
+    },
+    "datePublished": "2022-01-19",
+    "description": "",
+    "wordCount":  510 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2022-01-19",
+    "publisher": {
+      "@type": "Organization",
+      "name": "",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/fromtheterminal.com\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
+    <link rel="stylesheet" href="/sass/main.min.ab99ff095f832511e24ffb2fba2b51ad473b2f7e9301d674eba2c6c3a6e8bd81.css">
+    
+</head>
+    <script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                        <img src="/favicon.ico" />
+                    
+                    From the Terminal
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/articles/">Articles</a>
+                
+                <button id="dark-mode-button">
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Building a Light Display - Part 2</h1>
+                    <div class="subtitle">
+                      Soldering everything together.
+                    </div>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            By hackerman | <time>January 19, 2022</time>
+                            | 3 minutes
+                        </div>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h1 id="connecting-the-neopixels-to-the-raspberry-pi">
+    <a href="#connecting-the-neopixels-to-the-raspberry-pi" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Connecting the NeoPixels to the Raspberry Pi
+</h1>
+<p>This will likely be the shortest post in the series, as I do not have expertise
+in electronics. I also cannot solder well, and I am sure my (surprisingly many)
+electrical engineering friends will get a laugh. So, I will just describe
+the steps I took.</p>
+<p>The Raspberry Pi outputs 3.3v and the NeoPixels or WS2811/2812 requires 5v. It
+is possible to get some number of LEDs to work without a 5v power supply, but
+it&rsquo;s not the best solution. Going forward, I used the following schematic which
+will use the Quad Level Shifter to convert the Raspberry Pi&rsquo;s 3.3v to 5v. If
+doing this project over, I would also add some capacitors as recommended by <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices">Neo
+Pixel Best
+Practices</a>.</p>
+<p><img loading="lazy" 
+    src="/barlights/led_strips_raspi_NeoPixel_Level_Shifted_bb.jpg" 
+    alt="led strips raspi neopixel level
+shifted" 
+     
+    width=1623 
+    height="1392"  /> <cite>Kattni
+Rembor<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></cite></p>
+<h2 id="required-items">
+    <a href="#required-items" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Required Items
+</h2>
+<ul>
+<li>Raspberry Pi</li>
+<li>breadboard</li>
+<li>22 gauge solid core wire</li>
+<li>solder and soldering iron</li>
+<li>sockets (optional but handy)</li>
+<li>WS12811/2 lights/neopixels</li>
+<li>5v power supply</li>
+<li>74AHCT125 Quad Level-Shifter or 74HCT245</li>
+<li>double-sided tape</li>
+</ul>
+<h1 id="assembly">
+    <a href="#assembly" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Assembly
+</h1>
+<p>I installed header pins to the Raspberry Pi. It helps with stability and give
+some more wiggle room for mistakes.</p>
+<p><img loading="lazy" 
+    src="/barlights/raspberry_pi_header.jpg" 
+    alt="raspberry pi header" 
+     
+    width=4032 
+    height="3024"  /></p>
+<p>The breadboard used here is connected like a solderless breadboard. I attached
+the 74AHCT125 Quad Level-Shifter and the rest of the wiring as described in the
+above schematic. Going back, I would use sockets to attach the 74AHCT125 and not
+just the Raspberry Pi.</p>
+<p><img loading="lazy" 
+    src="/barlights/74AHCT125.jpg" 
+    alt="74AHCT125" 
+     
+    width=3226 
+    height="2419"  /></p>
+<p><img loading="lazy" 
+    src="/barlights/soldered.jpg" 
+    alt="soldered" 
+     
+    width=4032 
+    height="3024"  /></p>
+<h1 id="installing-into-the-bar">
+    <a href="#installing-into-the-bar" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Installing into the bar
+</h1>
+<p>With some double-sided tape, I installed everything underneath the bar.
+Everything is pretty light and should hold fine. I will move all the power cords
+to the side with some clips in the near future.</p>
+<p><img loading="lazy" 
+    src="/barlights/installed_1.jpg" 
+    alt="installed_1" 
+     
+    width=4032 
+    height="3024"  />
+<img loading="lazy" 
+    src="/barlights/installed_2.jpg" 
+    alt="installed_2" 
+     
+    width=4032 
+    height="3024"  /></p>
+<p>The color in person is not washed out like it is in the video.</p>
+<video controls="controls" width="100%" name="lights on">
+  <source src="/barlights/lightson.mp4">
+</video>
+<h1 id="trouble-shooting">
+    <a href="#trouble-shooting" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Trouble Shooting
+</h1>
+<p>I actually worked through putting together the hardware four times before having
+this final working solution. The first time I set everything up using a solderless
+breadboard. This worked fine, but I wanted something a little more permanent.</p>
+<h2 id="physics-hard">
+    <a href="#physics-hard" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Physics Hard
+</h2>
+<p>The second attempt was soldering everything to the Raspberry Pi directly and
+connecting it to a smaller breadboard. I then used approximately 11 ft of 22
+gauge wire to connect to the power supply. Turns out that there is not enough
+power getting to the NeoPixels in this fashion.</p>
+<p>This is the start of me realizing that maybe installing sockets was a good idea.</p>
+<h2 id="soldering-hard">
+    <a href="#soldering-hard" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Soldering Hard
+</h2>
+<p>I do not have a lot of experience soldering and ran across a few issues that
+caused me problems.</p>
+<ul>
+<li>My soldering iron is in Fahrenheit. For some reason I thought it was Celsius.
+And I was wondering why I kept getting cold joints&hellip;</li>
+<li>Kept creating cold joints, even after setting the correct temperature.</li>
+<li>I&rsquo;m a terrible planner &ndash; <strong>use sockets</strong></li>
+</ul>
+<p>Though I didn&rsquo;t find any shorts from my shabby soldering, I do think that the
+cold joints caused too much resistance. Also, I&rsquo;m glad I used sockets on the
+Raspberry Pi, wish I used it on the level shifter.</p>
+<p><img loading="lazy" 
+    src="/barlights/failed_1.jpg" 
+    alt="soldered" 
+     
+    width=3024 
+    height="4032"  /></p>
+<p>I have built a couple of working keyboards. With the way my soldering has been,
+I am surprised they work.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://learn.adafruit.com/assets/64121">led strips raspi neopixel level shifted</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/barlights_part_1/" title="Previous post (older)">
+            <span>Previous</span>
+            Building a Light Display - Part I
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+ 
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.a534d05c446023fa2ae2a638f87cc2443ad8e49f6aaeb4d9f24ed61d53766712.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>

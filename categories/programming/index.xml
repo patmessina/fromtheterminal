@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on From the Terminal</title>
+    <link>https://fromtheterminal.com/categories/programming/</link>
+    <description>Recent content in programming on From the Terminal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fromtheterminal.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Light Display - Part 3</title>
+      <link>https://fromtheterminal.com/post/barlights_part_3/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fromtheterminal.com/post/barlights_part_3/</guid>
+      <description>All the code and software can be found here.
+    Planning out the controller  We want to build an API that we can control the lights and host this locally. Then we are going to build iPhone shortcuts to control the lights. Having the API will allow us to control the lights independent of platform.
+ Use gin to build the webserver Use rpi-ws281x-go to communicate with the lights.</description>
+    </item>
+    
+    <item>
+      <title>Building a Light Display - Part 4</title>
+      <link>https://fromtheterminal.com/post/barlights_part_4/</link>
+      <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fromtheterminal.com/post/barlights_part_4/</guid>
+      <description>iPhone Shortcuts     Bonus Cocktail  Planned on adding in a cocktail recipie at the end of the series, but why not add one sip on while working through the series? Lets make a</description>
+    </item>
+    
+  </channel>
+</rss>

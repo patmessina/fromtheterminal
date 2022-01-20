@@ -49,7 +49,7 @@
     },
     "datePublished": "2021-12-26",
     "description": "",
-    "wordCount":  810 ,
+    "wordCount":  823 ,
     "mainEntityOfPage": "True",
     "dateModified": "2021-12-26",
     "publisher": {
@@ -198,15 +198,15 @@ cocktail to enjoy.</p>
 <li>curl</li>
 <li>some shell</li>
 </ul>
-<h2 id="some-useful-refrences">
-    <a href="#some-useful-refrences" class="anchor">
+<h2 id="some-useful-references">
+    <a href="#some-useful-references" class="anchor">
         <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
             <path fill-rule="evenodd"
                 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
             </path>
         </svg>
     </a>
-    Some Useful Refrences
+    Some Useful References
 </h2>
 <ul>
 <li><a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/best-practices">Neo Pixel Best Practices</a></li>
@@ -228,7 +228,7 @@ cocktail to enjoy.</p>
 Lite</a>,
 use <code>dd</code> to image the SD card, then modify/add a few files to get what we
 need&hellip; or we could use the <a href="https://www.raspberrypi.com/software/">Raspberry Pi
-Imager</a> and have WiFi and ssh enabled
+Imager</a> and have Wi-Fi and ssh enabled
 for us with a few clicks. Normally I would prefer to do things via the
 command line, but in this instance it will save us a some time. Though it does
 feel a bit odd considering this blog is called <em>From the Terminal</em>.</p>
@@ -240,7 +240,7 @@ feel a bit odd considering this blog is called <em>From the Terminal</em>.</p>
     width=690 
     height="454"  /></p>
 <p>and press <kbd><kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>x</kbd></kbd> to get the advanced menu. Set the hostname, enable
-ssh, set the &lsquo;pi&rsquo; user password, configure the WiFi settings, and make sure the
+ssh, set the &lsquo;pi&rsquo; user password, configure the Wi-Fi settings, and make sure the
 correct time zone is set.</p>
 <p><img loading="lazy" 
     src="/barlights/rpi-advanced-settings.png" 
@@ -250,7 +250,7 @@ correct time zone is set.</p>
     height="1075"  /></p>
 <p>Then choose the OS, I have chosen to use <code>Operating System-&gt;Raspberry Pi OS (other)-&gt;Raspberry Pi OS Lite (32-bit)</code>, but it should be fine to choose any
 others. With the SD card plugged into our computer, select the desired device and then click write. There should be a
-prompt for the password and it should specify the disk. <strong>Double check that it
+prompt for the password, and it should specify the disk. <strong>Double check that it
 is the correct disk!</strong></p>
 <p><img loading="lazy" 
     src="/barlights/rpi-auth.png" 
@@ -259,7 +259,7 @@ is the correct disk!</strong></p>
     width=690 
     height="675"  /></p>
 <p>Put the SD card in the Raspberry Pi and boot. If configured correctly, it
-should join the WiFi network specified. The IP can be found via the networks
+should join the Wi-Fi network specified. The IP can be found via the networks
 router or find the device with <code>nmap</code> with the following command:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -293,12 +293,12 @@ device address. As an example:</p>
 </h1>
 <p>We will be using Go and the package
 <a href="https://github.com/rpi-ws281x/rpi-ws281x-go">rpi-ws281x-go</a> to
-program the lights. It is recommend to develop on a different machine
-than on the Raspberry Pi, which means we need to cross compile.
-Normally this is easy with Go, but because we need to use some c
-libraries it is recommended to use a container  to cross compile.
-<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> It is probably best to follow the libraries documentation, but I
-will provide the steps I followed.</p>
+program the lights. It is a good idea to develop on a different
+machine than on the Raspberry Pi, which means we need to cross
+compile. Normally this is easy with Go, but because we need to use
+some c libraries it is recommended to use a container to cross
+compile. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> It is probably best to follow the library&rsquo;s
+documentation, but I will provide the steps I followed.</p>
 <p>We first grab the <code>Dockerfile</code> and use <code>buildx</code>. The platform may need to
 be changed to whichever Raspberry Pi is being used. For the Raspberry
 Pi 0 W it is <code>linux/arm/v6</code>. I did have some troubles on this step which
@@ -389,8 +389,22 @@ service.  <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noter
     </a>
     Issues with running swiss example
 </h2>
-<p>The examples given were for <code>linux/arm/v7</code>. I needed <code>linux/arm/v6</code>. I needed
-to cross compile to the correct architecture? Who would of thought that.</p>
+<p>The examples given were for <code>linux/arm/v7</code> and the Raspberry Pi W required
+<code>linux/arm/v6</code>. I needed to cross compile to the correct architecture? Who would
+have thought that.</p>
+<h1 id="updates">
+    <a href="#updates" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Updates
+</h1>
+<ul>
+<li>2022-01-19: Corrected some spelling and grammar.</li>
+</ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -414,6 +428,11 @@ time.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21
     <nav class="flex container suggested">
         
         
+        
+        <a rel="next" href="/post/barlights_part_2/" title="Next post (newer)">
+            <span>Next</span>
+            Building a Light Display - Part 2
+            </a> 
         
     </nav>
     

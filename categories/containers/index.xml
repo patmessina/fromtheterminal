@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>containers on From the Terminal</title>
+    <link>https://fromtheterminal.com/categories/containers/</link>
+    <description>Recent content in containers on From the Terminal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fromtheterminal.com/categories/containers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Container Images</title>
+      <link>https://fromtheterminal.com/post/containers/</link>
+      <pubDate>Tue, 07 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fromtheterminal.com/post/containers/</guid>
+      <description>Introduction  We will likely be using containers many of times
+   What is an Image?  Packaged software with all needed
+   What is a Container?     What is a micorservice?     Why?     Why Docker?     Installation  We can check if everything is up and running with
+1  docker version   If there is an error</description>
+    </item>
+    
+  </channel>
+</rss>

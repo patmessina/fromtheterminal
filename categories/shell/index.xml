@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on From the Terminal</title>
+    <link>https://fromtheterminal.com/categories/shell/</link>
+    <description>Recent content in shell on From the Terminal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fromtheterminal.com/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell Basics</title>
+      <link>https://fromtheterminal.com/post/shell/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fromtheterminal.com/post/shell/</guid>
+      <description>Introduction  We will be covering the basics of the linux commandline. The author will be creating the tutorial with Zsh but all commands here should work with most POSIX shells.
+   The prompt     Files  Files are things like
+   Directories  Say we wanted to create a directory called
+1  mkdir &amp;lt;directory name&amp;gt;   We can then move into the directy with</description>
+    </item>
+    
+  </channel>
+</rss>

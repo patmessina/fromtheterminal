@@ -6,7 +6,17 @@
     <description>Recent content in hardware on From the Terminal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fromtheterminal.com/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://fromtheterminal.com/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Light Display - Part 2</title>
+      <link>https://fromtheterminal.com/post/barlights_part_2/</link>
+      <pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://fromtheterminal.com/post/barlights_part_2/</guid>
+      <description>Connecting the NeoPixels to the Raspberry Pi  This will likely be the shortest post in the series, as I do not have expertise in electronics. I also cannot solder well, and I am sure my (surprisingly many) electrical engineering friends will get a laugh. So, I will just describe the steps I took.
+The Raspberry Pi outputs 3.3v and the NeoPixels or WS2811/2812 requires 5v. It is possible to get some number of LEDs to work without a 5v power supply, but it&amp;rsquo;s not the best solution.</description>
+    </item>
+    
     <item>
       <title>Building a Light Display - Part I</title>
       <link>https://fromtheterminal.com/post/barlights_part_1/</link>
